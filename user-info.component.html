@@ -1,0 +1,59 @@
+<nz-descriptions nzTitle="Хэрэглэгчийн мэдээлэл">
+  <nz-descriptions-item nzTitle="ID">1</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Овог">Саранмандах</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Нэр">Сэргэлэн</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Хаяг">Улаанбаатар</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Утасны дугаар">95633619</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Төрсөн он сар өдөр">1999/10/26</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="E-Mail">Alright1026@gmail.com</nz-descriptions-item>
+</nz-descriptions>
+
+<nz-list nzBordered nzSize="small">
+    <nz-list-header style="font-weight: bold;">Хэрэглэгчийн аяласан газар</nz-list-header>
+    <nz-list-item >1.Улаанбаатар --->   Дорнод</nz-list-item>
+    <nz-list-item >2.Дорнод --->  Улаанбаатар</nz-list-item>
+    <nz-list-item style="font-weight: bold;">Хэрэглэгчийн захиалсан буудал</nz-list-item>
+    <nz-list-item>
+        <div nz-col>
+            <div nz-row nzSpan="24">
+              <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219);" 
+              [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+                <nz-card-meta 
+                    nzTitle="Эзэнт гүрэн зочид буудал" 
+                    nzDescription="Дорнод" ></nz-card-meta>
+              </nz-card>
+              <ng-template #coverTemplate>
+                <img alt="Эзэнт гүрэн " src="../../../assets/images/ezent.jpg" />
+                <nz-rate style="text-align: center;" [ngModel]="4" nzDisabled></nz-rate>
+              </ng-template>
+              <ng-template #actionEllipsis>
+                <button
+                nz-button nzType="primary" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+                Захиалсан
+                </button>
+              </ng-template>
+              <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+              [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+                <nz-card-meta 
+                    nzTitle="NINE HOTEL" 
+                    nzDescription="Улаанбаатар" ></nz-card-meta>
+              </nz-card>
+              <ng-template #coverTemplate1>
+                <img style="height: 165px;" alt="ХанБүргэд зочид буудал" src="../../../assets/images/ubHotel.jpg" />
+                <nz-rate style="text-align: center;" [ngModel]="5" nzDisabled></nz-rate>
+              </ng-template>
+              <ng-template #actionEllipsis1>
+                <button
+                nz-button nzType="primary" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+                Захиалсан
+                </button>
+              </ng-template>
+      
+
+            </div>
+          </div>
+    </nz-list-item>
+    <nz-list-footer>
+      ...
+    </nz-list-footer>
+</nz-list>

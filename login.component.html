@@ -1,0 +1,27 @@
+<section class="devLogin">
+    <div id="loginLogo">
+      <img src="../../../assets/images/logo.jpg" alt="logo">
+    </div>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Нэвтрэх нэр оруулна уу!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Нэвтрэх нэр" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Нууц үг оруулна уу!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Нууц үг" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button 
+            (click)="login()" 
+            class="login-form-button"
+            nz-button 
+            [nzType]="'primary'">
+            Нэвтрэх</button>
+    </form>
+  </section>

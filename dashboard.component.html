@@ -1,0 +1,69 @@
+<nz-layout>
+    <nz-sider
+    nzWidth="256px"
+    id="slider"
+     nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <div class="logo">
+          <ng-container *ngIf="isCollapsed == false; else miniInfoElse">
+            <div id="userInfo">
+              <div nz-row>
+                <div nz-col nzSpan="6">
+                  <img src="../../../assets/images/logo.png">
+                </div>
+                <div nz-col nzSpan="18">
+                  <p>Travel</p>
+                </div>
+              </div>
+              <ng-template #defaultIcon>
+                  <img src="../../../assets/images/user.png">
+              </ng-template>
+           </div>
+          </ng-container>
+          <ng-template #miniInfoElse>
+            <div nz-row>
+              <div nz-col nzSpan="6">
+                <img src="../../../assets/images/logo.png">
+              </div>
+            </div>
+          </ng-template>
+      </div>
+      <ul nz-menu nzTheme="white" nzMode="inline">
+        <li  nz-submenu nzTitle="Нүүр хуудас" nzIcon="database">
+          <ul>
+            <li [routerLink]="['map']"  nz-menu-item>Маршут сонгох</li>
+            <li [routerLink]="['userInfo']" nz-menu-item>Хэрэглэгчийн мэдээлэл</li>
+          </ul>
+        </li>
+        <button (click)="logout()" id="loginButton"  nz-button nzType="default"> 
+        <i style="color: black;" nz-icon nzType="logout">
+          </i>Гарах </button>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i
+              class="trigger"
+              nz-icon
+              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+          </span>
+          <span class="menu-right">
+            <p>
+              <nz-avatar
+                nzIcon="user"
+                  ></nz-avatar>
+                Сэргэлэн
+            </p>  
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+      
+    </nz-layout>
+</nz-layout>

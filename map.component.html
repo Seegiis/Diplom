@@ -1,0 +1,1041 @@
+<section>
+  <div nz-row>
+      <div nz-col nzSpan="2">
+          <p>Хаанаас:</p>
+      </div>
+      <div nz-col nzSpan="4">
+          <nz-select [(ngModel)]="location1">
+              <nz-option nzValue="Улаанбаатар" nzLabel="Улаанбаатар"></nz-option>
+              <nz-option nzValue="Дорнод" nzLabel="Дорнод"></nz-option>
+              <nz-option nzValue="Хэнтий" nzLabel="Хэнтий"></nz-option>
+              <nz-option nzValue="Сүхбаатар" nzLabel="Сүхбаатар"></nz-option>
+              <nz-option nzValue="Архангай" nzLabel="Архангай"></nz-option>
+              <nz-option nzValue="Баян-Өлгий" nzLabel="Баян-Өлгий"></nz-option>
+              <nz-option nzValue="Баянхонгор" nzLabel="Баянхонгор"></nz-option>
+              <nz-option nzValue="Булган" nzLabel="Булган"></nz-option>
+              <nz-option nzValue="Говь-Алтай" nzLabel="Говь-Алтай"></nz-option>
+              <nz-option nzValue="Говьсүмбэр" nzLabel="Говьсүмбэр"></nz-option>
+              <nz-option nzValue="Дархан-Уул" nzLabel="Дархан-Уул"></nz-option>
+              <nz-option nzValue="Дорноговь" nzLabel="Дорноговь"></nz-option>
+              <nz-option nzValue="Дундговь" nzLabel="Дундговь"></nz-option>
+              <nz-option nzValue="Завхан" nzLabel="Завхан"></nz-option>
+              <nz-option nzValue="Орхон" nzLabel="Орхон"></nz-option>
+              <nz-option nzValue="Өвөрхангай" nzLabel="Өвөрхангай"></nz-option>
+              <nz-option nzValue="Өмнөговь" nzLabel="Өмнөговь"></nz-option>
+              <nz-option nzValue="Сэлэнгэ" nzLabel="Сэлэнгэ"></nz-option>
+              <nz-option nzValue="Төв" nzLabel="Төв"></nz-option>
+              <nz-option nzValue="Увс" nzLabel="Увс"></nz-option>
+              <nz-option nzValue="Ховд" nzLabel="Ховд"></nz-option>
+              <nz-option nzValue="Хөвсгөл" nzLabel="Хөвсгөл"></nz-option>
+          </nz-select>
+      </div>
+      <div style="margin-left: 20px;" nz-col nzSpan="2">
+          <p>Хаашаа:</p>
+      </div>
+      <div nz-col nzSpan="4">
+          <nz-select [(ngModel)]="location2">
+              <nz-option nzValue="Дорнод" nzLabel="Дорнод"></nz-option>
+              <nz-option nzValue="Хэнтий" nzLabel="Хэнтий"></nz-option>
+              <nz-option nzValue="Сүхбаатар" nzLabel="Сүхбаатар"></nz-option>
+              <nz-option nzValue="Архангай" nzLabel="Архангай"></nz-option>
+              <nz-option nzValue="Баян-Өлгий" nzLabel="Баян-Өлгий"></nz-option>
+              <nz-option nzValue="Баянхонгор" nzLabel="Баянхонгор"></nz-option>
+              <nz-option nzValue="Булган" nzLabel="Булган"></nz-option>
+              <nz-option nzValue="Говь-Алтай" nzLabel="Говь-Алтай"></nz-option>
+              <nz-option nzValue="Говьсүмбэр" nzLabel="Говьсүмбэр"></nz-option>
+              <nz-option nzValue="Дархан-Уул" nzLabel="Дархан-Уул"></nz-option>
+              <nz-option nzValue="Дорноговь" nzLabel="Дорноговь"></nz-option>
+              <nz-option nzValue="Дундговь" nzLabel="Дундговь"></nz-option>
+              <nz-option nzValue="Завхан" nzLabel="Завхан"></nz-option>
+              <nz-option nzValue="Орхон" nzLabel="Орхон"></nz-option>
+              <nz-option nzValue="Өвөрхангай" nzLabel="Өвөрхангай"></nz-option>
+              <nz-option nzValue="Өмнөговь" nzLabel="Өмнөговь"></nz-option>
+              <nz-option nzValue="Сэлэнгэ" nzLabel="Сэлэнгэ"></nz-option>
+              <nz-option nzValue="Төв" nzLabel="Төв"></nz-option>
+              <nz-option nzValue="Увс" nzLabel="Увс"></nz-option>
+              <nz-option nzValue="Ховд" nzLabel="Ховд"></nz-option>
+              <nz-option nzValue="Хөвсгөл" nzLabel="Хөвсгөл"></nz-option>
+          </nz-select>
+      </div>
+      <button (click)="search()" style="margin-left: 20px;" nz-button nzType="default">Хайх</button>
+      <button (click)="reset()" style="margin-left: 20px;" nz-button nzType="default">Шинэчлэх</button>
+
+  </div>
+</section>
+
+<section>
+  <div nz-row>
+      <div nz-col nzSpan="5" style=" height: 520px !important;
+      overflow: scroll;"> 
+      <!-- dornod -->
+          <section *ngIf="dornod == true">
+            <h3 style="font-weight: bold;">Түүхэн дурсгалт газрууд</h3>
+            <!-- Чингисийн хэрмэн цав -->
+            <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+              <nz-card-meta 
+                  nzTitle="Чингисийн хэрмэн цав" 
+                  nzDescription="Хэрмийн урт нь 500-600 км. Хэрмийн зөв талд.." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+              <img alt="example" src="../../../assets/images/tsaw.jpg" />
+            </ng-template>
+            <ng-template #actionEllipsis>
+              <button
+              (click)="showModal('цав')"
+              nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+            <!-- Хэрлэн барс -->
+            <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+              <nz-card-meta 
+                  nzTitle="Хэрлэн барс" 
+                  nzDescription="Хэрлэн барс хот нь Монгол оронд байгаа Хятаны үеийн.." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate1>
+              <img alt="example" src="../../../assets/images/herlenbars.jpeg" />
+            </ng-template>
+            <ng-template #actionEllipsis1>
+              <button nz-button 
+              (click)="showModal('барс')"
+              nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+            <!-- Буйр нуур -->
+            <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate2" [nzActions]="[ actionEllipsis2]">
+              <nz-card-meta 
+                  nzTitle="Буйр нуур" 
+                  nzDescription="Буйр нуур нь зүүн Монгол-Өвөр Монголын зааг дээр орших цэнгэг уст нуур.." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate2>
+              <img alt="example" src="../../../assets/images/buirNuur.png" />
+            </ng-template>
+            <ng-template #actionEllipsis2>
+              <button
+              (click)="showModal('нуур')"
+              nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+          </section>
+          
+          <!-- khentii -->
+        <section *ngIf="khentii == true">
+            <!-- Бурхан Халдун уул -->
+            <nz-card  style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+              <nz-card-meta 
+                  nzTitle="Бурхан Халдун уул" 
+                  nzDescription="Бурхан Халдун нь Монгол улсын Хэнтий аймагт байх Хэнтийн нуруунд багтах уул юм.." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+              <img alt="example" src="../../../assets/images/burhanHaldun.jpeg" />
+            </ng-template>
+            <ng-template #actionEllipsis>
+              <button 
+              (click)="showModalKhentii('халдун')"
+              nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+            <!-- Балдан Бэрээвэн хийд -->
+            <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+              <nz-card-meta 
+                  nzTitle="Балдан Бэрээвэн хийд" 
+                  nzDescription="Хэнтий аймгийн Өмнөдэлгэр сумын Баянзүрх багийн нутагт Мөнх-Өлзийт уулын өвөрт.." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate1>
+              <img alt="example" src="../../../assets/images/baldanHiid.jpg" />
+            </ng-template>
+            <ng-template #actionEllipsis1>
+              <button 
+              (click)="showModalKhentii('хийд')"
+              nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+            <!-- Чингисийн гэрэлт хөшөө -->
+            <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+            [nzCover]="coverTemplate2" [nzActions]="[ actionEllipsis2]">
+              <nz-card-meta 
+                  nzTitle="Чингисийн гэрэлт хөшөө" 
+                  nzDescription="Түүний нэрийг ховор хэлж байсан тэрхүү социализмын үед боссон хөшөөний түүх ийм буюу..." ></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate2>
+              <img alt="example" src="../../../assets/images/chingisHushu.jpeg" />
+            </ng-template>
+            <ng-template #actionEllipsis2>
+              <button 
+              (click)="showModalKhentii('хөшөө')"
+              nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+              Дэлгэрэнгүй
+              </button>
+            </ng-template>
+        </section>
+
+        <section *ngIf="sukhbaatar == true">
+          <!-- Алтан овоо -->
+          <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+          [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+            <nz-card-meta 
+                nzTitle="Алтан овоо" 
+                nzDescription="Алтан Овоо нь Сүхбаатар аймгийн нутагт Молцог элсний хойд захад.." ></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate>
+            <img alt="example" src="../../../assets/images/altanOwoo.jpeg" />
+          </ng-template>
+          <ng-template #actionEllipsis>
+            <button 
+            (click)="showModalSukhbaatar('овоо')"
+            nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+            Дэлгэрэнгүй
+            </button>
+          </ng-template>
+          <!-- Шилийн богд -->
+          <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+          [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+            <nz-card-meta 
+                nzTitle="Шилийн богд" 
+                nzDescription="Шилийн Богд уулын тогоо нь баруун хойшоо сэтрэн урссан бөгөөд амсар нь 2 км орчим өргөн, 300 орчим м гүнзгий ажээ.." ></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate1>
+            <img alt="example" src="../../../assets/images/ShilBogd.jpeg" />
+          </ng-template>
+          <ng-template #actionEllipsis1>
+            <button 
+            (click)="showModalSukhbaatar('богд')"
+            nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+            Дэлгэрэнгүй
+            </button>
+          </ng-template>
+          <!--  Хүн чулуу -->
+          <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-bottom: 5px;" 
+          [nzCover]="coverTemplate2" [nzActions]="[ actionEllipsis2]">
+            <nz-card-meta 
+                nzTitle="Хүн чулуу" 
+                nzDescription="Хүн чулуу нь эртний хүмүүсийн шүтлэг бишрэл, угсаатны..." ></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate2>
+            <img alt="example" src="../../../assets/images/hunChulu.jpeg" />
+          </ng-template>
+          <ng-template #actionEllipsis2>
+            <button 
+            (click)="showModalSukhbaatar('чулуу')"
+            nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+            Дэлгэрэнгүй
+            </button>
+          </ng-template>
+      </section>
+    </div>
+    <div nz-col nzSpan="19">
+          <section>
+            <!-- coreMap -->
+            <div *ngIf="coreMap == true">
+              <mgl-map 
+                class="mainmap"
+                [style]="'mapbox://styles/mapbox/streets-v9'" 
+                [zoom]="[8]" 
+                [center]="[lng, lat]">
+              </mgl-map>
+            </div>
+            <!-- khentii -->
+           <div *ngIf="khentii == true">
+              <mgl-map 
+              class="mainmap"
+              [style]="'mapbox://styles/mapbox/streets-v9'" 
+              [zoom]="[8]" 
+              [center]="[lng, lat]">
+                    <mgl-geojson-source id="oneline">
+                      <mgl-feature [geometry]="geometryKhentii"> </mgl-feature>
+                    </mgl-geojson-source>
+                      <mgl-layer
+                      id="route"
+                      type="line"
+                      source="oneline"
+                      [layout]="{
+                        'line-join': 'round',
+                        'line-cap': 'round'
+                      }"
+                      [paint]="{
+                        'line-color': '#FF4500',
+                        'line-width': 3
+                      }">
+                    </mgl-layer>
+              </mgl-map>
+           </div>
+          
+           <!-- dornod -->
+           <div  *ngIf="dornod == true">
+            <mgl-map 
+            class="mainmap"
+            [style]="'mapbox://styles/mapbox/streets-v9'" 
+            [zoom]="[8]" 
+            [center]="[lng, lat]" >
+                <mgl-geojson-source id="oneline">
+                  <mgl-feature [geometry]="geometryDornod"> </mgl-feature>
+                </mgl-geojson-source>
+                  <mgl-layer
+                  id="route"
+                  type="line"
+                  source="oneline"
+                  [layout]="{
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                  }"
+                  [paint]="{
+                    'line-color': '#FF4500',
+                    'line-width': 3
+                  }">
+                </mgl-layer>
+            </mgl-map>
+         </div>
+
+        <!-- sukhbaatar -->
+        <div  *ngIf="sukhbaatar == true">
+          <mgl-map 
+          class="mainmap"
+          [style]="'mapbox://styles/mapbox/streets-v9'" 
+          [zoom]="[8]" 
+          [center]="[lng, lat]"
+          >
+                  <mgl-geojson-source id="oneline">
+                    <mgl-feature [geometry]="geometrySukhbaar"> </mgl-feature>
+                  </mgl-geojson-source>
+                    <mgl-layer
+                    id="route"
+                    type="line"
+                    source="oneline"
+                    [layout]="{
+                      'line-join': 'round',
+                      'line-cap': 'round'
+                    }"
+                    [paint]="{
+                      'line-color': '#FF4500',
+                      'line-width': 3
+                    }">
+                  </mgl-layer>
+          </mgl-map>
+       </div>
+
+       
+          </section>
+      </div>
+  </div>
+  <!-- Зочид буудал захиалга дорнод -->
+  <div nz-col *ngIf="dornod == true">
+    <h3 style="font-weight: bold;">Зочид буудал захиалга</h3>
+    <div nz-row nzSpan="24">
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219);" 
+      [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+        <nz-card-meta 
+            nzTitle="Эзэнт гүрэн зочид буудал" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="Эзэнт гүрэн " src="../../../assets/images/ezent.jpg" />
+        <nz-rate style="text-align: center;" [ngModel]="4" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <button
+        (click)="showModalHotelDornod('гүрэн')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Захиалах
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+        <nz-card-meta 
+            nzTitle="ХанБүргэд" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate1>
+        <img alt="ХанБүргэд зочид буудал" src="../../../assets/images/khanburged.jpg" />
+        <nz-rate style="text-align: center;" [ngModel]="3" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis1>
+        <button
+        (click)="showModalHotelDornod('бүргэд')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate3" [nzActions]="[ actionEllipsis3]">
+        <nz-card-meta 
+            nzTitle="Баянгол бааз" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate3>
+        <img style="height: 165px;"
+        alt="Баянгол бааз" src="../../../assets/images/bayngol.jpg" />
+        <nz-rate style="text-align: center;" [ngModel]="5" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis3>
+        <button
+        (click)="showModalHotelDornod('бааз')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Хэнтий буудал захиалга -->
+  <div nz-col *ngIf="khentii == true">
+    <h3 style="font-weight: bold;">Зочид буудал захиалга</h3>
+    <div nz-row nzSpan="24">
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219);" 
+      [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+        <nz-card-meta 
+            nzTitle="Ар горхи зочид буудал" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="Ар горхи" src="../../../assets/images/arGorhi.jpeg" />
+        <nz-rate style="text-align: center;" [ngModel]="4" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <button
+        (click)="showModalHotelKhentii('ar')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Захиалах
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+        <nz-card-meta 
+            nzTitle="Хөвчийн жонон" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate1>
+        <img alt="Хөвчийн жонон"  style="height: 165px;" src="../../../assets/images/jonon.jpg" />
+        <nz-rate style="text-align: center;" [ngModel]="3" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis1>
+        <button
+        (click)="showModalHotelKhentii('jonon')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate3" [nzActions]="[ actionEllipsis3]">
+        <nz-card-meta 
+            nzTitle="Эрдэнэ зочид буудал" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate3>
+        <img style="height: 165px;"
+        alt="Эрдэнэ зочид буудал" src="../../../assets/images/erdene.jpeg" />
+        <nz-rate style="text-align: center;" [ngModel]="5" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis3>
+        <button
+        (click)="showModalHotelKhentii('erdene')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Сүхбаатар буудал захиалга -->
+  <div nz-col *ngIf="sukhbaatar == true">
+    <h3 style="font-weight: bold;">Зочид буудал захиалга</h3>
+    <div nz-row nzSpan="24">
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219);" 
+      [nzCover]="coverTemplate" [nzActions]="[ actionEllipsis]">
+        <nz-card-meta 
+            nzTitle="Ар горхи зочид буудал" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="Ар горхи" src="../../../assets/images/arGorhi.jpeg" />
+        <nz-rate style="text-align: center;" [ngModel]="4" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <button
+        (click)="showModalHotelKhentii('ar')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Захиалах
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate1" [nzActions]="[ actionEllipsis1]">
+        <nz-card-meta 
+            nzTitle="Хөвчийн жонон" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate1>
+        <img alt="Хөвчийн жонон"  style="height: 165px;" src="../../../assets/images/jonon.jpg" />
+        <nz-rate style="text-align: center;" [ngModel]="3" nzDisabled></nz-rate>
+      </ng-template>
+      <ng-template #actionEllipsis1>
+        <button
+        (click)="showModalHotelKhentii('jonon')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+
+      <nz-card style="width:220px; border: 1px solid rgba(0, 0, 0, 0.219); margin-left: 5px;" 
+      [nzCover]="coverTemplate3" [nzActions]="[ actionEllipsis3]">
+        <nz-card-meta 
+            nzTitle="Эрдэнэ зочид буудал" 
+            nzDescription="" ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate3>
+        <img style="height: 165px;"
+        alt="Эрдэнэ зочид буудал" src="../../../assets/images/erdene.jpeg" />
+        <nz-rate style="text-align: center;" [ngModel]="5" nzDisabled></nz-rate>
+      </ng-template>x   
+      <ng-template #actionEllipsis3>
+        <button
+        (click)="showModalHotelKhentii('erdene')"
+        nz-button nzType="default" [nzSize]="'small'"><i nz-icon nzType="info"></i>
+        Дэлгэрэнгүй
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
+
+<!-- Дорнод -->
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/tsaw.jpg" alt="Чингисийн хэрмэн цав" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Чингисийн хэрмэн цав</h1>
+<p style="font-size: 12px;">Монгол улсын нутагт "Чингисийн далан", "Чингисийн зам", "Чингисийн хэрэм" нэртэй нэлээд хэдэн 
+  дурсгал байдгийн нэг нь Хэнтий аймгийн Баян - Адарга сумын хуучин төвийн баруун талаас эхлэн Хуурайн 
+  давааг чиглэн, Нарийн хөндийд хүрч, Сайханы араас баруунтайгуур, хөндий даган Сайнцагаан нуурын хойгуур гарч,
+  Норовлин сумын Улзын өндөр дов, Дорнод аймгийн Баяндун сумын нутаг Хэрмийн худаг зэрэг газраар дамжин улмаар
+  Цагаан овоо, Сэргэлэн, Гурван-Загал сумдын нутгаар БНХАУ-ын нутагт ортол хэсэг хэсэг газар тасран үргэлжилсэн шороон хэрэм юм.</p>
+
+  <a href="https://mn.wikipedia.org/wiki/%D0%A7%D0%B8%D0%BD%D0%B3%D0%B8%D1%81%D0%B8%D0%B9%D0%BD_%D1%85%D1%8D%D1%80%D0%BC%D1%8D%D0%BD_%D1%86%D0%B0%D0%B2">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleBars" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/herlenbars.jpeg" alt="Хэрлэн барс" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Хэрлэн барс</h1>
+<p style="font-size: 12px;">Хэрлэн барс хот нь Монгол оронд байгаа Хятаны үеийн хотын туурь балгас юм. 
+  Энэхүү балгас нь Дорнод аймгийн Цагаан-Овоо сумын сумын нутагт 
+  Чойбалсан хотоос баруун тийш 86 км-т, Хэрлэн голын эрэгт оршино.
+  Хэрэм нь дөрвөлжин хэлбэртэй, баруун талын ханын урт нь 1900м, хойт ба 
+  зүүн ханын урт нь тус бүр 1700м, урд хана нь 1530м байжээ. Хэрмийн өндөр нь 
+  одоо 1,5-2м, зузаан нь 3-3,5м байна. Их хэрмийн гадна талд харуулын хараат цамхаг 3 байсан, 
+  үүний нэг нь хэрмийн баруун талд, хоёр нь зүүн талд байсан байна. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%A5%D1%8D%D1%80%D0%BB%D1%8D%D0%BD_%D0%B1%D0%B0%D1%80%D1%81">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleNuur" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/buirNuur.png" alt="Буйр нуур" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 40%;">
+<h1 style="font-weight: bold;">Буйр нуур</h1>
+<p style="font-size: 12px;">Буйр нуур нь зүүн Монгол-Өвөр Монголын зааг дээр орших цэнгэг уст нуур. 
+  Зэргэлдээ орших Хөлөн буюу Далай нууртай хамт Хөлөн-Буйрын экологийн бүс нутагт хамрагдана. Тус нуурыг 2004 онд Рамсарын 
+  конвенцид олон улсын ач холбогдол бүхий ус намгархаг газрын жагсаалтад бүртгэжээ.
+  Нуурын өмнөд эрэгт түрэлт давалгаагаар үүссэн 3-5 метр өндөр элсэн далан үргэлжилдэг ба завсарт нь 
+  жижиг нуур тогтож зарим нь үндсэн нууртайгаа холбогдоно. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%91%D1%83%D0%B9%D1%80_%D0%BD%D1%83%D1%83%D1%80">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleGuren" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/oneRoom.jpg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/twoRoom.jpeg"
+  width="350px"
+ >
+</div>
+</div>
+<h1 style="font-weight: bold;">Эзэнт гүрэн зочид буудал</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">88110099</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">1 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">65000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">2 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">85000₮</div>
+  <div nz-col nzSpan="6">
+    <p style="font-weight: bold; font-size: 14px;">Өрөө сонгох:</p>
+    <nz-select ngModel="valueRoom">
+      <nz-option nzValue="1room" nzLabel="1 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="2 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<p style="font-weight: bold; font-size: 14px;">Өдрөө сонгох:</p>
+<nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">Дорнод Эзэнт гүрэн зочид буудал</div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button>
+  </div>
+</div>
+</nz-modal>
+<nz-modal [(nzVisible)]="isVisibleBurged" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/oneRoom.jpg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/twoRoom.jpeg"
+  width="350px"
+ >
+</div>
+</div>
+<h1 style="font-weight: bold;">Эзэнт гүрэн зочид буудал</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">99003366</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">1 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">60000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">2 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">80000₮</div>
+  <div nz-col nzSpan="6">
+    <p style="font-weight: bold; font-size: 14px;">Өрөө сонгох:</p>
+    <nz-select ngModel="valueRoom">   
+      <nz-option nzValue="1room" nzLabel="1 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="2 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<p style="font-weight: bold; font-size: 14px;">Өдрөө сонгох:</p>
+<nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    <br />
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">ХанБүргэд зочид буудал</div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button>
+  </div>
+</div>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleBaaz" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/oneRoom.jpg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/twoRoom.jpeg"
+  width="350px"
+ >
+</div>
+
+</div>
+<h1 style="font-weight: bold;">Баянгол бааз</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">77557766</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">3 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">80000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">5 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">120000₮</div>
+  <div nz-col nzSpan="6">
+    <p style="font-weight: bold; font-size: 14px;">Өрөө сонгох:</p>
+    <nz-select ngModel="valueRoom">  
+      <nz-option nzValue="1room" nzLabel="3 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="5 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<p style="font-weight: bold; font-size: 14px;">Өдрөө сонгох:</p>
+<nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">Баянгол бааз </div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button></div>
+  </div>
+</nz-modal>
+<!-- Дорнод дууссан-->
+
+<!-- Хэнтий -->
+<nz-modal [(nzVisible)]="isVisibleKhaldun" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/burhanHaldun.jpeg" alt="Бурхан Халдун уул" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Бурхан Халдун уул</h1>
+<p style="font-size: 12px;">
+  Бурхан Халдун нь Монгол улсын Хэнтий аймагт байх 
+  Хэнтийн нуруунд багтах уул юм. Чингис хааны төрсөн 
+  нутаг бөгөөд түүний булш байдаг гэсэн домогтой, монголчуудын 
+  эрхэмлэн шүтдэг уул юм. Монголчууд тус хайрханыг "Хадун хайрхан"
+  гэж нэрийддэг байсан бол сүүлд Буддын шашны нөлөөгүүр 
+  Бурхан гэдэг нэршил нэмэгдэж "Бурхан Халдун" болсон бөгөөд 
+  Буддын шашины нөлөөнөөс өмнө Монголчууд "бурхан" гэдэг үг хэллэг 
+  хэрэглэдэггүй байсантай маргахгүй бизээ. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%91%D1%83%D1%80%D1%85%D0%B0%D0%BD_%D0%A5%D0%B0%D0%BB%D0%B4%D1%83%D0%BD_%D1%83%D1%83%D0%BB">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleKhiid" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/baldanHiid.jpg" alt="Балдан Бэрээвэн хийд" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Балдан Бэрээвэн хийд</h1>
+<p style="font-size: 12px;">
+  Хэнтий аймгийн Өмнөдэлгэр сумын Баянзүрх багийн нутагт Мөнх-Өлзийт 
+  уулын өвөрт 1777 онд Цэвээндорж гэдэг монгол лам анх жижиг сүм 
+  бариулж Манзушир бурханы чулуун дүрийг бүтээлгэснээр суурь нь тавигджээ. 
+  Улмаар 5000-6000 ламтай Монгол дахь хамгийн том хийдүүдийн нэг болтлоо өсөж 
+  Монголын зүүн нутгийн ард түмний шашин соёлын төв болтлоо хөгжсөн байна. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%91%D0%B0%D0%BB%D0%B4%D0%B0%D0%BD%D0%B1%D1%8D%D1%80%D1%8D%D1%8D%D0%B2%D1%8D%D0%BD_%D1%85%D0%B8%D0%B9%D0%B4">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleKhoshoo" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/chingisHushu.jpeg" alt="Чингисийн гэрэлт хөшөө" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Чингисийн гэрэлт хөшөө</h1>
+<p style="font-size: 12px;">
+  Хэнтий аймгийн Өмнөдэлгэр сумын Баянзүрх багийн нутагт Мөнх-Өлзийт 
+  уулын өвөрт 1777 онд Цэвээндорж гэдэг монгол лам анх жижиг сүм 
+  бариулж Манзушир бурханы чулуун дүрийг бүтээлгэснээр суурь нь тавигджээ. 
+  Улмаар 5000-6000 ламтай Монгол дахь хамгийн том хийдүүдийн нэг болтлоо өсөж 
+  Монголын зүүн нутгийн ард түмний шашин соёлын төв болтлоо хөгжсөн байна. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%AD%D0%B7%D1%8D%D0%BD_%D0%A7%D0%B8%D0%BD%D0%B3%D0%B8%D1%81%D0%B8%D0%B9%D0%BD_%D0%90%D0%BD%D1%85%D0%BD%D1%8B_%D0%93%D1%8D%D1%80%D1%8D%D0%BB%D1%82_%D0%A5%D3%A9%D1%88%D3%A9%D3%A9">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleAr" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/1room.jpeg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/2room.jpg"
+  width="350px"
+ >
+</div>
+</div>
+<h1 style="font-weight: bold;">Ар горхи зочид буудал</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">77001155</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">1 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">65000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">2 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">85000₮</div>
+  <div nz-col nzSpan="6">
+    <nz-select ngModel="valueRoom">
+      <p style="font-weight: bold; font-size: 14px;">Өрөө сонгох:</p>
+      <nz-option nzValue="1room" nzLabel="1 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="2 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<p style="font-weight: bold; font-size: 14px;">Өдрөө сонгох:</p>
+<nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">Ар горхи зочид буудал</div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button>
+  </div>
+</div>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="isVisibleJonon" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/1room.jpeg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/2room.jpg"
+  width="350px"
+ >
+</div>
+</div>
+<h1 style="font-weight: bold;">Хөвчийн жонон зочид буудал</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">88441100</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">1 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">65000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">2 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">85000₮</div>
+  <div nz-col nzSpan="6">
+    <nz-select ngModel="valueRoom">
+      <nz-option nzValue="1room" nzLabel="1 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="2 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">Хөвчийн жонон зочид буудал</div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button>
+  </div>
+</div>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleErdene" 
+nzWidth= 800px
+nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" 
+(nzOnOk)="handleOk()">
+<div nz-row>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/1room.jpeg"
+  width="350px"
+ >
+</div>
+<div nz-col nzSpan="12">
+  <img alt="Qries" 
+  src="../../../assets/images/2room.jpg"
+  width="350px"
+ >
+</div>
+</div>
+<h1 style="font-weight: bold;">Эрдэнэ зочид буудал</h1>
+<div nz-row>
+<div nz-col nzSpan="4">
+  <p style="font-weight: bold; font-size: 14px;">Утасны дугаар:</p>
+</div>
+<div nz-col nzSpan="2">99001150</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">1 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="2">65000₮</div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">2 ортой өрөө:</p>
+  </div>
+  <div nz-col nzSpan="12">85000₮</div>
+  <div nz-col nzSpan="6">
+    <nz-select ngModel="valueRoom">
+      <nz-option nzValue="1room" nzLabel="1 ортой өрөө"></nz-option>
+      <nz-option nzValue="2room" nzLabel="2 ортой өрөө"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <p style="font-weight: bold; font-size: 14px;">Хаяг:</p>
+  </div>
+  <div nz-col nzSpan="12">Эрдэнэ зочид буудал</div>
+  <div nz-col nzSpan="6">
+    <button 
+    (click)="order('success')"
+    nz-button nzType="default">
+      Захиалах
+    </button>
+  </div>
+</div>
+</nz-modal>
+<!-- Хэнтий дууссан-->
+
+<!-- Сүхбаатар -->
+<nz-modal [(nzVisible)]="isVisibleOvoo" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/altanOwoo.jpeg" alt="Алтан овоо" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Алтан овоо</h1>
+<p style="font-size: 12px;">
+  Алтан Овоо нь Сүхбаатар аймгийн нутагт Молцог элсний хойд захад Дарьганга 
+  сумын төвийн дэргэд оршдог 1354м өндөр унтарсан галт уул. Мөн Дарь-Овоо, 
+  Алтан Дарь Овоо хэмээн нэрлэдэг.Галт уулын шовгор хэлбэр нь эвдрээгүй үлдсэн. 
+  Галт уулсын хүрмэн чулуу их. Амсар нь баруун хойшоо сэтэрч урсчээ. 
+  Харьцангуй өндөр нь 100м боловч аль ч талаасаа их алсаас (60км-ээс) 
+  сүр бараатай харагддаг сайхан галт уул. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%90%D0%BB%D1%82%D0%B0%D0%BD_%D0%94%D0%B0%D1%80%D1%8C_%D0%BE%D0%B2%D0%BE%D0%BE">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleBogd" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/ShilBogd.jpeg" alt="Шилийн богд" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Шилийн богд</h1>
+<p style="font-size: 12px;">
+  Сүхбаатар аймгийн Дарьганга сумаас зүүн хойш 60 км-т д.т.дээш 1778 метрт оршдог 
+  Дарьгангын энэ өндөрлөг тэгш газарт 200 орчим унтарсан галт уул байдгийн хамгийн 
+  өндөр нь Шилийн богд уул юм. Богд уул гэх нэршил нь сүүлд Буддын шашны нөлөөгөөр 
+  нэмэгдэж нэрлэгдсэн нэршил бөгөөд эрт дээр үеэс Монголчууд "Шивээт шил" "Агшуун" 
+  хэмээн нэрийддэг байсан ба тал нутгийн их хайрхан хэмээн тахин шүтэж иржээ. </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%A8%D0%B8%D0%BB%D0%B8%D0%B9%D0%BD_%D0%B1%D0%BE%D0%B3%D0%B4_%D1%83%D1%83%D0%BB">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleChuluu" nzTitle="Дэлгэрэнгүй мэдээлэл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<img src="../../../assets/images/hunChulu.jpeg" alt="Хүн чулуу" 
+style=" display: block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;">
+<h1 style="font-weight: bold;">Хүн чулуу</h1>
+<p style="font-size: 12px;">
+  Хүн чулуу буюу хүн чулуун хөшөө нь (Англиар:Kurgan stelae; 
+  Оросоор: каменные бабы; Украйнаар: Баби кам'яні;Киргизээр: балбал) хүн дүрстэйгээр
+  хийсэн чулуун хөшөө дурсгалууд юм. Хүн төрөлхтөн хүн чулуун дурсгалыг 
+  МЭӨ 4000 жилийн үеэс буюу түрүү хүрэл зэвсгийн үеэс дундад зууны үе хүртэл
+  бүтээж байсан гэж үздэг. Хүн чулууны дурсгалуудын эртнийх нь иран хэлний 
+  бүлгийн нүүдэлчид болох Скифүүдтэй холбоотой байдаг бол дунд үе нь 
+  Түрэгүүдтэй холбоотой байдаг.  </p>
+  <a href="https://mn.wikipedia.org/wiki/%D0%A5%D2%AF%D0%BD_%D1%87%D1%83%D0%BB%D1%83%D1%83">
+    Wikipedia дэлгэрэнгүй</a>
+</nz-modal>
+<!-- Сүхбаатар дууссан-->
